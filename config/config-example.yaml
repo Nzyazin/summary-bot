@@ -1,0 +1,31 @@
+server:
+  port: "8080"
+
+database:
+  host: "localhost"
+  port: "5432"
+  user: "postgres"
+  password: "postgres"
+  dbname: "summary_bot"
+  sslmode: "disable"
+
+redis:
+  host: "localhost"
+  port: "6379"
+  password: ""
+  db: 0
+
+telegram:
+  token: "YOUR_TELEGRAM_BOT_TOKEN"
+  debug: true
+  admins: [YOUR_TELEGRAM_ID]
+
+llm:
+  provider: "openai"
+  api_key: "YOUR_OPENAI_API_KEY"
+  model_name: "gpt-3.5-turbo"
+  max_tokens: 500
+
+log:
+  level: "debug"
+  file: "logs/app.log"

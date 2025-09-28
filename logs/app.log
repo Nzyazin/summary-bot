@@ -1,0 +1,4 @@
+{"level":"info","ts":1759056254.7721484,"caller":"bot/bot.go:34","msg":"Бот авторизован как LLMGhatAgregator_bot"}
+{"level":"info","ts":1759056274.1619034,"caller":"bot/bot.go:34","msg":"Бот авторизован как LLMGhatAgregator_bot"}
+{"level":"info","ts":1759056325.5168617,"caller":"bot/bot.go:67","msg":"[sovpeople] /start"}
+{"level":"info","ts":1759056360.3347578,"caller":"bot/bot.go:67","msg":"[sovpeople] привет"}
