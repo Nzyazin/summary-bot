@@ -62,17 +62,14 @@ func NewArtemoxClient(apiKey, model string) (*ArtemoxClient, error) {
 	}, nil
 }
 
-// TextSummarize обрабатывает текстовый запрос и создает выжимку
 func (c *ArtemoxClient) TextSummarize(ctx context.Context, prompt, text string, maxTokens int) (string, error) {
 	if text == "" {
 		return "", errors.New("text is required")
 	}
 
-	// Формируем системный промпт и пользовательский запрос
 	systemPrompt := "Ты - помощник, который создает краткие и информативные выжимки из текстов."
 	userPrompt := fmt.Sprintf("%s\n\n%s", prompt, text)
 
-	// Создаем запрос
 	messages := []artemoxMessage{
 		{Role: "system", Content: systemPrompt},
 		{Role: "user", Content: userPrompt},
@@ -81,7 +78,6 @@ func (c *ArtemoxClient) TextSummarize(ctx context.Context, prompt, text string, 
 	return c.sendRequest(ctx, messages, maxTokens)
 }
 
-// VisionDescribe обрабатывает запрос с изображением
 func (c *ArtemoxClient) VisionDescribe(ctx context.Context, prompt, imageURL string, maxTokens int) (string, error) {
 	if imageURL == "" {
 		return "", errors.New("image url is required")
