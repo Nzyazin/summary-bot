@@ -12,6 +12,7 @@ type Config struct {
 	Database DatabaseConfig `mapstructure:"database"`
 	Telegram TelegramConfig `mapstructure:"telegram"`
 	Log      LogConfig      `mapstructure:"log"`
+	LLM      LLMConfig      `mapstructure:"llm"`
 }
 
 type ServerConfig struct {
@@ -36,6 +37,18 @@ type TelegramConfig struct {
 type LogConfig struct {
 	Level string `mapstructure:"level"`
 	File  string `mapstructure:"file"`
+}
+
+// LLMConfig holds generic LLM provider settings. Supported providers:
+// - For OpenRouter, set provider: "openrouter", api_key, model_name (e.g. "x-ai/grok-4-fast:free"),
+//   and optionally base_url (defaults to https://openrouter.ai/api/v1).
+// - For Artemox, set provider: "artemox", api_key, model_name (e.g. "gpt-4o-mini").
+type LLMConfig struct {
+	Provider  string `mapstructure:"provider"`
+	APIKey    string `mapstructure:"api_key"`
+	ModelName   string `mapstructure:"model_name"`
+	MaxTokens int    `mapstructure:"max_tokens"`
+	BaseURL   string `mapstructure:"base_url"`
 }
 
 func LoadConfig(configPath string) (*Config, error) {
